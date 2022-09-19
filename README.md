@@ -40,7 +40,7 @@ warnings.filterwarnings('ignore')
 
 ## Loading Dataset
 
-Dataset has been downloaded from kaggle.You can see more info clicking **[here](https://www.kaggle.com/datasets/uciml/sms-spam-collection-dataset)**
+Dataset has been downloaded from kaggle.You can see more info clicking **[here](https://www.kaggle.com/code/mfaisalqureshi/email-spam-detection-98-accuracy/data)**
 ```
 print(data.shape)
 (5572, 2)
