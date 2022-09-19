@@ -1,11 +1,16 @@
 # Email Spam Classification
 
-<img src="/images/email-spam.png" width="200" >
+
+
+<img src="/images/email-spam.png" align="left" width="200" />
 
 ## Goal
 
-The aim of this project is to classify emails into spam and ham emails
-To do this I will use the frequencies method ,that will count the how many different words there are in a sentence after that I will choose a number of relevant words.Below I will expalin better the method
+The aim of this project is to classify emails into spam and ham emails.  
+To do this I will use the frequencies method that will count  how many different words there are in a sentence after that I will choose a number of relevant words.Below I will expalin better the method
+
+<br clear="left"/>
+
 
 ## Libraries used
 
@@ -17,6 +22,15 @@ import plotly_express as px
 import plotly.figure_factory as ff
 from wordcloud import WordCloud
 import nltk
+
+from sklearn.model_selection import cross_val_score
+from sklearn.naive_bayes import GaussianNB
+from sklearn.linear_model import LogisticRegression
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.svm import SVC
+
+from sklearn import metrics
+
 import warnings
 from sklearn.model_selection import train_test_split
 warnings.filterwarnings('ignore')
@@ -100,17 +114,59 @@ This algorithm is very similar to the one-hot encoding, but it has the advantage
 
 After that I searched the most used words for each category ,i will create a Bag of Word only with  that in order to reduce the number of variable that the model should  to handle
 
-## Splitting data
+# Splitting data
 Since the dataset is unbalanced i will split data using stratified sampling
 
 # Training Models
+I will use the following models:
 
-I will use the following models to classify the target variable:
-
-|Model|Accuracy Baseline|
+|Model|Accuracy Test set|
 |-----|--------|
-|Naive Bayes| 87.83%|
-|Logistic Regression| 97.02%|
-|**Random Forest**| 98.22%| 
-|Support Vector Classifier| 86.59%| 
-|Voting Classifier |97.45%|
+|Naive Bayes| 95,81%|
+|Logistic Regression| 97.82%|
+|**Random Forest**| 98.42%| 
+|Support Vector Classifier| 86.56%| 
+|Voting Classifier |97.98%|
+
+At this point before moving on I should choose the model to fit,in this case i will take into account only the accuracy on the test set to choose the model  (but I could also consider 'recall','precision' and others metrics), for this reason i will choose **Random Forest**
+
+# Fitting the model
+
+Fitting Random Forest classifier
+
+``` 
+rf.get_params()
+
+{'bootstrap': True,
+ 'ccp_alpha': 0.0,
+ 'class_weight': None,
+ 'criterion': 'gini',
+ 'max_depth': None,
+ 'max_features': 'auto',
+ 'max_leaf_nodes': None,
+ 'max_samples': None,
+ 'min_impurity_decrease': 0.0,
+ 'min_samples_leaf': 1,
+ 'min_samples_split': 2,
+ 'min_weight_fraction_leaf': 0.0,
+ 'n_estimators': 100,
+ 'n_jobs': None,
+ 'oob_score': False,
+ 'random_state': 1,
+ 'verbose': 0,
+ 'warm_start': False}
+ 
+ ```
+ ![](/images/featureimportance.png)
+ 
+ ![](/main/images/misclassification.png)
+ 
+# Saving model with pickle and model Deployment
+Pickle is the standard way of serializing objects in Python.
+We can use the pickle operation to serialize our machine learning algorithms and save the serialized format to a file.
+
+After saving the model I wrote the code to use it 
+
+# Conclusion
+
+Even if i have obtained 
