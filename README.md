@@ -4,8 +4,7 @@
 
 ## Goal
 
-The aim of this project is to classify emails into spam and non-spam email 
-
+The aim of this project is to classify emails into spam and ham emails
 To do this I will use the frequencies method ,that will count the how many different words there are in a sentence after that I will choose a number of relevant words.Below I will expalin better the method
 
 ## Libraries used
