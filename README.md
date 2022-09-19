@@ -11,6 +11,7 @@ To do this I will use the frequencies method that will count  how many different
 
 <br clear="left"/>
 
+[Go to Conclusion](#Conclusion)
 
 ## Libraries used
 
@@ -159,7 +160,7 @@ rf.get_params()
  ```
  ![](/images/featureimportance.png)
  
- ![](/main/images/misclassification.png)
+ ![](/images/misclassification.png)
  
 # Saving model with pickle and model Deployment
 Pickle is the standard way of serializing objects in Python.
@@ -169,4 +170,4 @@ After saving the model I wrote the code to use it
 
 # Conclusion
 
-Even if i have obtained 
+I have obtained an accuracy of 98.42%  with a precision score  for spam emails of  98.23% and of 98.45% for ham emails,I can conclude saying that the model will work well with emails like in the dataset but since that modern emails have a more complex structure this model will not be useful in classifying those
