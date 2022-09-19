@@ -129,11 +129,12 @@ I will use the following models:
 |Support Vector Classifier| 86.56%| 
 |Voting Classifier |97.98%|
 
-At this point before moving on I should choose the model to fit,in this case i will take into account only the accuracy on the test set to choose the model  (but I could also consider 'recall','precision' and others metrics), for this reason i will choose **Random Forest**
+At this point before moving on I should choose the model to analyze,in
+this case i will take into account only the accuracy on the test set to choose the model  (but I could also consider 'recall','precision' and others metrics),for this reason i will choose **Random Forest**
 
-# Fitting the model
+# Model's features
 
-Fitting Random Forest classifier
+Showing the features of the Random Forest classifier
 
 ``` 
 rf.get_params()
