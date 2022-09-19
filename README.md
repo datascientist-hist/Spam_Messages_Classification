@@ -35,21 +35,25 @@ print(data.shape)
 ## EDA
 I am going to obtain a general overview of the dataset using graphs and adding also a new feature length that describes the number of characters of each email
 
+![](/images/counttarget.png)
+
 The dataset is unbalanced, we can observe that there are:
 - 747 observations as Spam
 - 4825 observations as ham
 
 ```
-#Adding new feature
+# Adding new feature
 
 #apply len columns to entire dataset and for train and test dataset
 data['length'] = data['Message'].apply(len)
 ```
 Now I  will observe if there are difference in length between email spam and not
 
+![](/images/distribution%20length.png)
+
 From the above distributions plot we can observe that length is a powerful feature since is able to provide an useful information
 
-#Feature Engineering
+# Feature Engineering
 
 ## Preprocess the data
 
@@ -70,6 +74,8 @@ Going forward, I'll remove stopwords from the message content. Stop words are wo
 
 Next, I will extract the base form of words by removing affixes from them. This called stemming,there are numerous stemming algorithms,i'll use Snowball Stemmer
 
+![](/images/stemming.png)
+
 
 ## Count Vectors
 
@@ -82,9 +88,16 @@ This algorithm is very similar to the one-hot encoding, but it has the advantage
 
 - Step 2: From the set of all the words in the corpus(collection of document), count how often the word occurs in the document.
 
+![](/images/bag%20of%20words.png)
+
+
 ### Showing the  100 most used word in spam emails
 
+![](/images/spamwords.png)
+
 ### Showing the  100 most used word in ham emails
+
+![](/images/hamwords.png)
 
 After that I searched the most used words for each category ,i will create a Bag of Word only with  that in order to reduce the number of variable that the model should  to handle
 
